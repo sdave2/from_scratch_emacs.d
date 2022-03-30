@@ -46,6 +46,7 @@
              :color blue)))
 
 (use-package git-gutter-fringe
+  :pin melpa-stable
   :diminish git-gutter-mode
   :after git-gutter
   :demand fringe-helper
@@ -53,6 +54,7 @@
   ;; subtle diff indicators in the fringe
   ;; places the git gutter outside the margins.
   (setq-default fringes-outside-margins t))
+
 
 
 

@@ -1,2 +1,15 @@
 elpa/
 transient/
+elpy/
+.mc-lists.el
+.org-id-locations
+.saves/
+auto-save-list/
+bookmarks
+eshell/
+org-roam.db
+recentf
+session.*
+tramp
+undo/
+.emacs.desktop*

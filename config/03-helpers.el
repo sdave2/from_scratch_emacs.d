@@ -8,12 +8,16 @@
 ;; Set a way to revert buffer to what the file represents. (Not C-x C-v which deletes undo history) 
 (global-set-key (kbd "C-M-g") 'revert-buffer)
 
+
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; Remove toolbar, menubar, and scrollbar from display
 (mapc (lambda (mode) (funcall mode -1)) '(tool-bar-mode menu-bar-mode scroll-bar-mode))
 
 ;; Set Highlight line mode. This highlights the line you're currently on
-(global-hl-line-mode t)
+(require 'hl-line+)
+(global-hl-line-mode 0)
+(toggle-hl-line-when-idle t) ; Highlight only when idle
+
 
 ;; Overwrite comment
 (setq spacemacs-theme-comment-bg nil)
@@ -74,3 +78,18 @@
 
 ;; Set this so you can overwrite a selected region
 (delete-selection-mode 1)
+
+
+;; Install AG Emacs package
+(use-package ag
+  :ensure t)
+
+;;; Install transpose-frame
+(use-package transpose-frame
+  :ensure t)
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config (exec-path-from-shell-copy-env "SSH_AGENT_PID")
+  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
+

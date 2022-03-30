@@ -1,4 +1,4 @@
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+;;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "sbcl")
 
 ;; Prettify symbols in emasc lisp files
@@ -10,15 +10,16 @@
 (set-language-environment "UTF-8")
 ;; slime setup
 (use-package slime
-  :init
-  (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  :ensure t
+  :pin melpa-stable
+  ;;  :init (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  :bind (("<C-M-backspace>" . 'backward-kill-sexp))
   :config
   (setq slime-lisp-implementations
-	'((sbcl  ("/usr/bin/sbcl" "--dynamic-space-size" "2GB") :coding-system utf-8-unix)
-	  )
+	'((sbcl  ("/usr/bin/sbcl" "--dynamic-space-size" "2GB") :coding-system utf-8-unix))
 	slime-net-coding-system 'utf-8-unix
 	slime-export-save-file t
-	slime-contribs '(slime-fancy slime-repl slime-scratch slime-trace-dialog)
+	slime-contribs '(slime-fancy slime-repl slime-scratch slime-trace-dialog slime-tramp)
 	lisp-simple-loop-indentation  1
 	lisp-loop-keyword-indentation 6
 	lisp-loop-forms-indentation   6)
@@ -43,5 +44,10 @@
 (defun override-slime-repl-bindings-with-paredit ()
   (define-key slime-repl-mode-map
     (read-kbd-macro paredit-backward-delete-key) nil))
+
+(use-package slime-docker
+  :ensure t
+  :custom
+  (slime-docker-program "sbcl"))
 
 

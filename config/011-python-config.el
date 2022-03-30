@@ -14,12 +14,16 @@
   :init
   (advice-add 'python-mode :before 'elpy-enable)
   (add-hook 'python-mode-hook
-          (lambda ()
-	    (define-key python-mode-map "\r" 'newline-and-indent)))
-  (add-hook 'python-mode-hook '(lambda () 
-				 (setq python-indent 4)))
-  (setq elpy-shell-starting-directory 'current-directory)
-  )
+            (lambda () (define-key python-mode-map "\r" 'newline-and-indent)))
+  (add-hook 'python-mode-hook (lambda ()
+				(setq indent-tabs-mode t)
+				(setq python-indent 4)
+				(setq tab-width 4)))
+  (add-hook 'python-mode-hook
+	    (lambda ()
+	      (setq flycheck-python-pylint-executable "$HOME/.local/bin/pylint")
+	      (setq flycheck-pylintrc (substitute-in-file-name "$HOME/.pylintrc"))))
+  (setq elpy-shell-starting-directory 'current-directory))
 
 ;; ====================================
 ;; Development Setup

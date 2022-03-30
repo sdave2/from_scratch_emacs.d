@@ -20,4 +20,3 @@
 (use-package clj-refactor :ensure t
   :config (progn
 	    (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)))
-

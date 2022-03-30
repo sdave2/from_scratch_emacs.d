@@ -30,23 +30,13 @@
         (mapc 'load (directory-files config-dir nil "^[^#].*el$")))))
   (when (file-exists-p user-config-file) (load user-config-file)))
 
-
-
-
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(elpy-rpc-python-command "python3")
  '(package-selected-packages
-   (quote
-    (slime-company python-pytest flyceck elpy json-mode yaml-mode clj-refactor org-mode multiple-cursors company-quickhelp cider aggressive-indent aggressive-indent-mode rainbow-delimiters rainbow-delimiters-mode rainbow-mode clojure-mode hydra git-gutter-fringe git-gutter expand-region undo-tree avy counsel swiper ivy smartparens which-key magit company flycheck spacemacs-theme)))
- '(python-pytest-arguments (quote ("--color" "--failed-first" "--maxfail=5")))
- '(python-pytest-confirm t)
- '(python-shell-interpreter "python3"))
-
+   '(org-roam-ui git-gutter-fringe which-key uuidgen use-package undo-tree transpose-frame swiper spacemacs-theme smartparens slime-docker rainbow-mode rainbow-delimiters python-pytest org-roam magit keychain-environment groovy-mode git-gutter flycheck expand-region exec-path-from-shell elpy company-quickhelp clj-refactor avy aggressive-indent ag)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
