@@ -37,6 +37,8 @@
   :config   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 (use-package python-pytest
+  :ensure t
+  :pin melpa-stable
   :custom
   (python-pytest-confirm t)
   (python-pytest-arguments

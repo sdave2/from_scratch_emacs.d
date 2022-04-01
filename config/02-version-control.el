@@ -46,6 +46,7 @@
              :color blue)))
 
 (use-package git-gutter-fringe
+  :ensure t
   :pin melpa-stable
   :diminish git-gutter-mode
   :after git-gutter
