@@ -30,13 +30,15 @@
         (mapc 'load (directory-files config-dir nil "^[^#].*el$")))))
   (when (file-exists-p user-config-file) (load user-config-file)))
 
+(setq initial-major-mode 'lisp-interaction-mode)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(org-roam-ui git-gutter-fringe which-key uuidgen use-package undo-tree transpose-frame swiper spacemacs-theme smartparens slime-docker rainbow-mode rainbow-delimiters python-pytest org-roam magit keychain-environment groovy-mode git-gutter flycheck expand-region exec-path-from-shell elpy company-quickhelp clj-refactor avy aggressive-indent ag)))
+   '(elixir-mode ob-elixir org-roam-ui git-gutter-fringe which-key uuidgen use-package undo-tree transpose-frame swiper spacemacs-theme smartparens slime-docker rainbow-mode rainbow-delimiters python-pytest org-roam magit keychain-environment groovy-mode git-gutter flycheck expand-region exec-path-from-shell elpy company-quickhelp clj-refactor avy aggressive-indent ag)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
