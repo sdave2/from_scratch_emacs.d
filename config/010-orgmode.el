@@ -15,7 +15,8 @@
 	       (emacs-lisp . t)
 	       (python . t)
 	       (elixir . t)))
-	    (add-to-list 'org-structure-template-alist '("L" . "src lisp \n")))
+	    (add-to-list 'org-structure-template-alist '("L" . "src lisp \n"))
+	    (add-to-list 'load-path "~/.emacs.d/external-packages/ob-elixir"))
   :bind (:map org-mode-map
 	      ("C-<right>" . org-shiftright)
 	      ("<C-S-right>" . org-shiftright) 
@@ -24,7 +25,8 @@
 	      ("<S-left>" . nil)
 	      ("<S-up>" . nil)
 	      ("<S-down>" . nil)
-	      ("C-c l" . (lambda () (interactive) (org-insert-structure-template "src lisp\n"))))
+	      ("C-c l" . (lambda () (interactive) (org-insert-structure-template "src lisp\n")))
+	      ("C-c e" . (lambda () (interactive) (org-insert-structure-template "src elixir\n"))))
   :hook ((org-mode . org-indent-mode)
 	 (org-mode . (lambda () (visual-line-mode 1)))))
 
@@ -125,3 +127,6 @@
         org-roam-ui-follow t
         org-roam-ui-update-on-save t
 	org-roam-ui-open-on-start nil))
+
+
+(require 'ob-elixir nil t)
