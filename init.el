@@ -6,13 +6,21 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 
 (package-initialize)
-(push "/home/shwetank/bin/" exec-path)
+;; (push "/home/shwetank/bin/" exec-path)
+(push "/home/shwetank/.asdf/shims" exec-path)
 
 ;; Bootstrap 'use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+(unless (package-installed-p 'quelpa)
+  (package-refresh-contents)
+  (package-install 'quelpa))
+(unless (package-installed-p 'quelpa-use-package)
+  (package-refresh-contents)
+  (package-install 'quelpa-use-package))
 (require 'use-package)
+(require 'quelpa-use-package)
 
 (unless (package-installed-p 'spacemacs-theme)
   (package-refresh-contents)
@@ -36,7 +44,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(org-roam-ui git-gutter-fringe which-key uuidgen use-package undo-tree transpose-frame swiper spacemacs-theme smartparens slime-docker rainbow-mode rainbow-delimiters python-pytest org-roam magit keychain-environment groovy-mode git-gutter flycheck expand-region exec-path-from-shell elpy company-quickhelp clj-refactor avy aggressive-indent ag)))
+   '(lsp-ui inf-elixir reformatter elixir-mode lsp-mode org-roam-ui git-gutter-fringe which-key uuidgen use-package undo-tree transpose-frame swiper spacemacs-theme smartparens slime-docker rainbow-mode rainbow-delimiters python-pytest org-roam magit keychain-environment groovy-mode git-gutter flycheck expand-region exec-path-from-shell elpy company-quickhelp clj-refactor avy aggressive-indent ag)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

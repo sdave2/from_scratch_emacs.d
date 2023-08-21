@@ -1,6 +1,6 @@
 (defun evaulate-confirmation (lang body)
   "This function needs to return nil"
-  (not (member lang '("lisp" "python"))))
+  (not (member lang '("lisp" "python" "elixir"))))
 
 (use-package uuidgen
   :ensure t)
@@ -13,7 +13,8 @@
 	     'org-babel-load-languages
 	     '((lisp . t)
 	       (emacs-lisp . t)
-	       (python . t)))
+	       (python . t)
+	       (elixir . t)))
 	    (add-to-list 'org-structure-template-alist '("L" . "src lisp \n")))
   :bind (:map org-mode-map
 	      ("C-<right>" . org-shiftright)
@@ -84,7 +85,7 @@
                          "#+title: ${title}\n")
       :unnarrowed t)
      ("c" "chapter note" plain
-      "* %?\t\t:important:\n** References\n- Previous Chapter:\n- Next Chapter\n** Functions Covered\n** Exercises\n"
+      "* %?\t\t:important:\n** References\n- Previous Chapter:\n- Next Chapter:\n** Functions Covered\n** Exercises\n"
       :target (file "${slug}-%<%Y%m%d%H%M%S>.org")
       :head "#+title: ${title}\n"
       :unnarrowed t)))
