@@ -13,3 +13,10 @@ session.*
 tramp
 undo/
 .emacs.desktop*
+.lsp-session-v1
+eln-cache/
+history
+non-melpa-packages/
+old_configs/
+straight/
+config/*~
